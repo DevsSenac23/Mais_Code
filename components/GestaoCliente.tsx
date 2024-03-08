@@ -10,20 +10,10 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import loginWallpaper from "@/public/icon-empresa.png"
-import Image from "next/image"
-import {
-  Dialog,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog"
 import PopupConfirmacao from "@/components/PopUpConfirmacao";
 
 
-export default function ListaCadastro() {
+export default function GestaoCliente() {
   return (
     <div className="flex justify-center items-center h-screen">
       <Card className="w-[375px] shadow-xl">
@@ -32,17 +22,10 @@ export default function ListaCadastro() {
         </CardHeader>
         <CardContent>
           <div className="flex justify-center items-center ">
-            <Image
-              className="opacity-40"
-              src={loginWallpaper}
+            <img
+              className="w-20 h-20 opacity-40"
+              src={'/icons/icon-empresa.png'}
               alt="Imagem"
-              sizes="10vw"
-              style={
-                {
-                  width: "25%",
-                  height: "25%"
-                }
-              }
             />
           </div>
           <form>
@@ -67,7 +50,7 @@ export default function ListaCadastro() {
           </form>
         </CardContent>
         <CardFooter className="flex justify-center items-center ">
-          <PopupConfirmacao/>
+          <PopupConfirmacao />
         </CardFooter>
       </Card>
     </div>
