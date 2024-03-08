@@ -95,15 +95,12 @@ export type Payment = {
   comis: number
 }
 
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef <Payment>[] = [
   {
     id: " ",
     header: ({ table }) => (
       <Checkbox
-        checked={
-          table.getIsAllPageRowsSelected() ||
-          (table.getIsSomePageRowsSelected() && "indeterminate")
-        }
+        checked={table.getIsAllPageRowsSelected() || (table.getIsSomePageRowsSelected() && "indeterminate")}
         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
         aria-label="Select all"
       />
@@ -121,9 +118,7 @@ export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "contrato",
     header: "N. Contrato",
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("contrato")}</div>
-    ),
+    cell: ({ row }) => <div className="capitalize">{row.getValue("contrato")}</div>,
   },
   {
     accessorKey: "data",
@@ -143,48 +138,36 @@ export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "client",
     header: "Cliente",
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("client")}</div>
-    ),
+    cell: ({ row }) => <div className="capitalize">{row.getValue("client")}</div>,
   },
 
   {
     accessorKey: "tip",
     header: "Tipo",
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("tip")}</div>
-    ),
+    cell: ({ row }) => <div className="capitalize">{row.getValue("tip")}</div>,
   },
 
   {
     accessorKey: "parc",
     header: "Parcelas",
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("parc")}</div>
-    ),
+    cell: ({ row }) => <div className="capitalize">{row.getValue("parc")}</div>,
   },
 
   {
     accessorKey: "val",
     header: "Valor",
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("val")}</div>
-    ),
+    cell: ({ row }) => <div className="capitalize">{row.getValue("val")}</div>,
   },
 
   {
     accessorKey: "comis",
     header: "Comissão",
-    cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("comis")}</div>
-    ),
+    cell: ({ row }) => <div className="capitalize">{row.getValue("comis")}</div>,
   },
   {
     id: "actions",
     enableHiding: false,
-    cell: ({row}) => {
-      const payment = row.original
-    }
+    cell: ({row}) => {const payment = row.original}
   }
 ]
 
@@ -243,9 +226,9 @@ export default function DataTableDemo() {
                           key={column.id}
                           className="capitalize"
                           checked={column.getIsVisible()}
-                          //onCheckedChange={(value) =>
-                              //column.toggleVisibility(!!value)
-                          //}
+                          onCheckedChange={(value) =>
+                          column.toggleVisibility(!!value)
+                          }
                       >
                         {column.id}
                       </DropdownMenuCheckboxItem>
@@ -256,7 +239,7 @@ export default function DataTableDemo() {
       </div>
 
       <div className="rounded-md border">
-        <Table>
+        <Table className="bg-white">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
                 <TableRow key={headerGroup.id}>
@@ -290,7 +273,7 @@ export default function DataTableDemo() {
                                             )}
                                         </TableCell>
                                     ))}
-                                </TableRow>
+                     </TableRow>
                             ))
                         ) : (
                             <TableRow>
@@ -302,22 +285,22 @@ export default function DataTableDemo() {
                                 </TableCell>
                             </TableRow>
                         )}
-                    </TableBody>
-                </Table>
+          </TableBody>
+        </Table>
             </div>
-            <div className="flex items-center justify-end space-x-2 py-4">
+            <div className="bg-white flex items-center justify-end space-x-2 py-4">
                 <div className="flex-1 text-sm text-muted-foreground">
-                    {table.getFilteredSelectedRowModel().rows.length} of{" "}
-                    {table.getFilteredRowModel().rows.length} row(s) selected.
+                    {table.getFilteredSelectedRowModel().rows.length} de {" "}
+                    {table.getFilteredRowModel().rows.length} linhas selecionadas.
                 </div>
                 <div className="space-x-2">
-                    <Button
+                    <Button 
                         variant="outline"
                         size="sm"
                         onClick={() => table.previousPage()}
                         disabled={!table.getCanPreviousPage()}
                     >
-                        Previous
+                        Anterior
                     </Button>
                     <Button
                         variant="outline"
@@ -325,10 +308,10 @@ export default function DataTableDemo() {
                         onClick={() => table.nextPage()}
                         disabled={!table.getCanNextPage()}
                     >
-                        Next
+                        Próximo
                     </Button>
                 </div>
             </div>
         </div>
-    )
+    );
 }
