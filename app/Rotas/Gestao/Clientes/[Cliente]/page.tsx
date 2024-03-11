@@ -1,4 +1,3 @@
-"use client"
 import GestaoCliente from "@/components/GestaoCliente"
 
 
