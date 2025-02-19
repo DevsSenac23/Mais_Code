@@ -66,7 +66,7 @@ Substitua `<URL_DO_REPOSITORIO>` pelo link do seu repositório GitHub.
 1. Após iniciar o servidor, acesse a URL local gerada pelo ambiente (geralmente `http://localhost` ou algo semelhante).
 2. O sistema criará automaticamente um usuário administrador com as seguintes credenciais:
    - **Login:** `admin@maiscode.com`
-   - **Senha:** `admin123`
+   - **Senha:** `admin`
 
 ---
 
